@@ -11,8 +11,10 @@ public interface PersonMapper {
 
     PersonMapper INSTANCE = Mappers.getMapper(PersonMapper.class);
 
+    @Mapping(target = "id", ignore = true)
     @Mapping( target = "birthDate", source = "birthDate", dateFormat = "dd-MM-yyyy")
     public Person toModel(PersonDTO personDTO);
 
-    PersonDTO toDTO(Person person);
+    @Mapping( target = "birthDate", source = "birthDate", dateFormat = "dd-MM-yyyy")
+    public PersonDTO toDTO(Person person);
 }
